@@ -1,0 +1,11 @@
+
+1.
+DELETE NODES
+ kubectl get nodes
+ kubectl delete node NODENAME
+
+2. 
+CLUSTER AND NODEGROUP DELETION
+  eksctl get nodegroup --cluster roboshop
+  eksctl delete nodegroup roboshop --cluster roboshop
+  eksctl delete cluster --name roboshop
