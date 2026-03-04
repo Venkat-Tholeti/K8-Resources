@@ -25,6 +25,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:stable-perl #HERE WE NEED TO CHANGE THE IMAGE VERSION EITHER LATEST OR ANY OTHER IMAGE FROM CURRENT VERSION
+         # image: nginx:stable-perl #HERE WE NEED TO CHANGE THE IMAGE VERSION EITHER LATEST OR ANY OTHER IMAGE FROM CURRENT VERSION
+          image: nginx:latest
    
    #kubectl get rs (replicaset)
