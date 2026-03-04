@@ -26,4 +26,6 @@ spec:
       containers:
         - name: nginx
           image: nginx
+
+      #kubectl get rs (replicaset)
    
