@@ -30,5 +30,5 @@ spec:
     #WE NEED TO USE BELOW COMMANDS AFTER THIS CREATION
     #kubectl get pods
     #kubectl get services
-    #kubetcl describe svc nginx
+    #kubetcl describe svc nginx #HERE SVC IS SERVICE. 
     #kubectl get pods -o wide
