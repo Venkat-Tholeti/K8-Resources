@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  #DEPLOYMENT LABELS
+  labels:
+    purpose: deployment-demo
+    project: roboshop
+    app: nginx
+spec:
+  replicas: 4
+  #THESE ARE THE LABELS REPLICASET USES TO CREATE POD REPLICAS, THIS SHOULD MATCH POD TEMPLATE LABELS
+  selector:
+   matchLabels:
+    purpose: deployment-demo
+    project: roboshop
+    app: nginx
+#THIS IS POD DEFINITION
+  template:
+    metadata:
+     labels:
+       purpose: deployment-demo
+       project: roboshop
+       app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable-perl #HERE WE NEED TO CHANGE THE IMAGE VERSION EITHER LATEST OR ANY OTHER IMAGE FROM CURRENT VERSION
+   
