@@ -29,3 +29,5 @@ spec:
           image: nginx:latest
    
    #kubectl get rs (replicaset)
+
+   #DEPLOYMENT IS ALL ABOUT CREATING NEW APPLICATION VERSION AND DELETING OLD  APPLICATION VERSION
