@@ -1,5 +1,5 @@
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolume # It is physical representation of volume
 metadata:
     name: ebs-static
 spec:
@@ -20,3 +20,22 @@ spec:
 #ReadWriteOncePod
 #The volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across the whole cluster can read that PVC or write to it.
 
+# Reclaim Policy
+# Current reclaim policies are:
+# Retain -- manual reclamation
+# Recycle -- basic scrub (rm -rf /thevolume/*)
+# Delete -- delete the volume
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim # It is claiming resource of the PV.So it is called persistent volume claim
+metadata:
+    name: ebs-static
+spec:
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: ebs-static
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi # WE CLAIM WITHIN THE LIMITS OF PV STORAGE
