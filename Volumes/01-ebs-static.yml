@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: ebs-static
+spec:
+  accessModes:
+   - ReadWriteOnce 
+  capacity:
+    storage: 10Gi
+  csi: 
+    driver: ebs.csi.aws.com 
+    fsType: ext4
+    volumeHandle: vol-0fb749628ec93b6b4
+#ReadWriteOnce
+#The volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access (read from or write to) that volume when the pods are running on the same node. For single pod access, please see ReadWriteOncePod.
+#ReadOnlyMany
+#The volume can be mounted as read-only by many nodes.
+#ReadWriteMany
+#The volume can be mounted as read-write by many nodes.
+#ReadWriteOncePod
+#The volume can be mounted as read-write by a single Pod. Use ReadWriteOncePod access mode if you want to ensure that only one pod across the whole cluster can read that PVC or write to it.
+
