@@ -10,7 +10,7 @@ spec:
   csi: 
     driver: ebs.csi.aws.com 
     fsType: ext4
-    volumeHandle: vol-0fb749628ec93b6b4
+    volumeHandle: vol-0ed89814cf4f40a3e
 #ReadWriteOnce
 #The volume can be mounted as read-write by a single node. ReadWriteOnce access mode still can allow multiple pods to access (read from or write to) that volume when the pods are running on the same node. For single pod access, please see ReadWriteOncePod.
 #ReadOnlyMany
@@ -39,3 +39,25 @@ spec:
   resources:
     requests:
       storage: 5Gi # WE CLAIM WITHIN THE LIMITS OF PV STORAGE
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    purpose: ebs-static-demo
+    project: roboshop
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts: # docker run -v host-path:container-path
+    - name: persistent-storage
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-static
