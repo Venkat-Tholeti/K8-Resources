@@ -1,0 +1,14 @@
+#HERE IN EFS DYNAMIC FILESYSTEM SHOULD BE CREATED MANUALLY , ONLY ACCESS POINTS WILL BE CREATED VIA THE CODE
+# IN ACCESS POINTS WE CAN CREATE ANY NO OF MOUNT POINTS FOR ALL COMPONENTS IN OUR PROJECT
+
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: efs-roboshop
+provisioner: efs.csi.aws.com
+reclaimPolicy: Retain 
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-07bd3b65f69b28a0f
+  directoryPerms: "700"
+  basePath: "/roboshop" # /roboshop/cart
