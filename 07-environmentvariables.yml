@@ -11,7 +11,7 @@ spec: #specifications of a pod
       image: nginx
       env:
         - name: COURSE
-          value: "KUBERNETS"
+          value: "KUBERENETS"
 
         - name: TRAINER
           value: "SIVAKUMAR"
