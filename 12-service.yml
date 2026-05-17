@@ -9,7 +9,7 @@ spec:
    selector:
      purpose: service-demo
      project: roboshop
-     environment: demo
+     environment: dev
   
    ports:
     - protocol: TCP
@@ -24,7 +24,7 @@ metadata:
    labels:
      purpose: service-demo
      project: roboshop
-     environment: demo
+     environment: dev
 
 spec: #specifications of a pod
    containers: 
