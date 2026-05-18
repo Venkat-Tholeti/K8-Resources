@@ -23,8 +23,8 @@ spec:
 
 # Reclaim Policy
 # Current reclaim policies are:
-# Retain -- manual reclamation
-# Recycle -- basic scrub (rm -rf /thevolume/*)
+# Retain -- manual reclamation # DATA REMAINS ON THE VOLUME
+# Recycle -- basic scrub (rm -rf /thevolume/*) #VOLUME WILL BE THERE, DATA WILL BE REMOVED.
 # Delete -- delete the volume
 
 ---
