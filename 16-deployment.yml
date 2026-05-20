@@ -27,7 +27,25 @@ spec:
         - name: nginx
          # image: nginx:stable-perl #HERE WE NEED TO CHANGE THE IMAGE VERSION EITHER LATEST OR ANY OTHER IMAGE FROM CURRENT VERSION
           image: nginx:latest
+---
    
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+  labels:
+    purpose: service-demo
+spec:
+  selector:
+    purpose: deployment-demo
+    project: roboshop
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80 # container port
+
+
    #kubectl get rs (replicaset)
 
    #DEPLOYMENT IS ALL ABOUT CREATING NEW APPLICATION VERSION AND DELETING OLD  APPLICATION VERSION
